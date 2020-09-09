@@ -17,7 +17,7 @@ class StatusServerController extends Controller
     public function index(Request $request)
     {
 
-        $status_ = StatusServer::where('name', 'like', env("APP_ENV"))->whereDate('created_at', \DB::raw('CURDATE()'))->orderBy('created_at')->get();
+        $status_ = StatusServer::where('name', 'like', env("APP_ENV"))->whereDate('created_at', \App\StatusServer::raw('CURDATE()'))->orderBy('created_at')->get();
         if ($request->has('date'))
             $status_ = StatusServer::where('name', 'like', env("APP_ENV"))->whereDate('created_at', $request->get('date'))->orderBy('created_at')->get();
         $last_slow = 0;
