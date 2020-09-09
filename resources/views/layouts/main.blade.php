@@ -105,10 +105,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('statusserver') }}" class="nav-link">
+            <a href="{{ url('monitor') }}" class="nav-link">
               <i class="nav-icon fas fa-server"></i>
               <p>
-                Status Server
+                Monitor
               </p>
             </a>
           </li>
