@@ -89,7 +89,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="{{ url('home') }}" class="nav-link">
+            <a href="{{ url('home') }}" class="nav-link{{ request()->is('home') ? ' active' : '' }}">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Home
@@ -97,15 +97,55 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('dashboard') }}" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="{{ url('server') }}" class="nav-link{{ request()->is('server') ? ' active' : '' }}">
+              <i class="nav-icon fas fa-server"></i>
               <p>
-                Dashboard
+                Server
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('monitor') }}" class="nav-link">
+            <a href="{{ url('processor') }}" class="nav-link{{ request()->is('processor') ? ' active' : '' }}">
+              <i class="nav-icon fas fa-microchip"></i>
+              <p>
+                Processor 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('memory') }}" class="nav-link{{ request()->is('memory') ? ' active' : '' }}">
+              <i class="nav-icon fas fa-memory"></i>
+              <p>
+                Memory 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('storage') }}" class="nav-link{{ request()->is('storage') ? ' active' : '' }}">
+              <i class="nav-icon fas fa-hdd"></i>
+              <p>
+                Storage 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('system') }}" class="nav-link{{ request()->is('system') ? ' active' : '' }}">
+              <i class="nav-icon fas fa-database"></i>
+              <p>
+                System 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('cek') }}" class="nav-link{{ request()->is('cek') ? ' active' : '' }}">
+              <i class="nav-icon fas fa-desktop"></i>
+              <p>
+                Monitoring 
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('monitor') }}" class="nav-link{{ request()->is('monitor') ? ' active' : '' }}">
               <i class="nav-icon fas fa-server"></i>
               <p>
                 Monitor
@@ -160,11 +200,17 @@
 <script src="{{ asset('template/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 
+<!-- jQuery Knob -->
+<script src="{{ asset('template/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+<!-- Sparkline -->
+<script src="{{ asset('template/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+
 <script src="{{ asset('template/plugins/daterangepicker/daterangepicker.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('template/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('template/dist/js/demo.js') }}"></script>
+<script src="{{ asset('template/dist/js/knob.js') }}"></script>
 
 <!-- page script -->
 <script>
@@ -184,6 +230,8 @@
     });
   });
 </script>
+
+
 
 </body>
 </html>

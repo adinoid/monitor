@@ -2,7 +2,13 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center text-center">
+        <div class="col-md-8">
+            <h4>IMPLEMENTASI TEKNIK AUTO SCALING PADA SISTEM MANAJEMEN BALANCING SERVER BERBASIS WEBSITE</h4>
+            <img class="mb-3 mt-3" src="/images/untan.png" alt="" width="100px">
+        </div>
+    </div>
+    <div class="row justify-content-center mt-2">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-primary">{{ __('Login') }}</div>
