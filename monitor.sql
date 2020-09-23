@@ -37,7 +37,7 @@ CREATE TABLE `checks` (
   PRIMARY KEY (`id`),
   KEY `checks_host_id_foreign` (`host_id`),
   CONSTRAINT `checks_host_id_foreign` FOREIGN KEY (`host_id`) REFERENCES `hosts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `checks` */
 
@@ -71,7 +71,7 @@ CREATE TABLE `hosts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `hosts` */
 
@@ -130,6 +130,20 @@ CREATE TABLE `status_servers` (
 
 /*Data for the table `status_servers` */
 
+/*Table structure for table `tes` */
+
+DROP TABLE IF EXISTS `tes`;
+
+CREATE TABLE `tes` (
+  `id` int(11) NOT NULL,
+  `angka` int(3) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `tes` */
+
+insert  into `tes`(`id`,`angka`) values (1,75);
+
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
@@ -149,7 +163,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`name`,`email`,`email_verified_at`,`password`,`remember_token`,`created_at`,`updated_at`) values (1,'ok','ok@gmail.com',NULL,'$2y$10$IySHv7KThdpfj1u9llHf.eoiVvK/5gPUFYy9wzv5XuJyhUZpPlNkW',NULL,'2020-08-28 09:22:17','2020-08-28 09:22:17'),(2,'admin1','admin1@gmail.com',NULL,'$2y$10$vjcAE.UQLBX1onEelIIeY.zBLYT3UB1KoGQ6Fal/LO5lBCh0lJ47y','1XABNroLOWAUhobXuOzzQgnohZzVEGN5AN2rPIQMX1kDEQ4QHRKuEZ5RDbSc','2020-09-09 14:15:37','2020-09-09 14:15:37');
+insert  into `users`(`id`,`name`,`email`,`email_verified_at`,`password`,`remember_token`,`created_at`,`updated_at`) values (1,'ok','ok@gmail.com',NULL,'$2y$10$IySHv7KThdpfj1u9llHf.eoiVvK/5gPUFYy9wzv5XuJyhUZpPlNkW',NULL,'2020-08-28 09:22:17','2020-08-28 09:22:17'),(2,'admin1','admin1@gmail.com',NULL,'$2y$10$vjcAE.UQLBX1onEelIIeY.zBLYT3UB1KoGQ6Fal/LO5lBCh0lJ47y','tOl6tlff9OK0ExZT0kTJo2tFRlmaAFl5x5UfiE298H1N45LIzA3uEFGHAVtT','2020-09-09 14:15:37','2020-09-09 14:15:37');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

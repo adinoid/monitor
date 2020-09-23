@@ -39,24 +39,25 @@
             <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                 class="fas fa-minus"></i>
             </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
-            </button>
+            {{-- <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i>
+            </button> --}}
           </div>
         </div>
         <!-- /.card-header -->
         <div class="card-body" id="host-{{ $host->id }}">
           <div class="row">
-            @forelse (onlyEnabled($host->checks) as $check)
+            {{-- @forelse (onlyEnabled($host->checks) as $check) --}}
+            {{-- @forelse ($cpus as $check) --}}
             <div class="col-md-4 mb-3 text-center">
-              <input type="text" class="knob" value="{{ $check->last_run_message }}" data-width="120" data-height="120" data-fgColor="{{ ($check->enabled) < 70 ? 'blue' : 'red' }}">
+              <textarea type="text" class="knob" value="{{ $host->last_run_message }}" data-width="120" data-height="120" readonly data-fgColor="{{ ($host->last_run_message) < 51 ? 'blue' : ( ($host->last_run_message) >= 51 && ($host->last_run_message) <= 80 ? 'orange' : 'red' ) }}">{{ $host->last_run_message }}</textarea>
 
-              <div class="knob-label">{{ $check->type }}</div>
+              <div class="knob-label">{{ $host->type }}</div>
               <hr>
             </div>
             
-            @empty
+            {{-- @empty
               <p>Belum Bisa Diakses</p>
-            @endforelse
+            @endforelse --}}
           </div>
           <!-- /.row -->
         </div>
