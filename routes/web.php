@@ -33,3 +33,5 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/page-visibility', 'MonitorController@updatePageVisibility');
 });
 Route::get('/home', 'HomeController@index');
+
+Route::get('/serveeer', 'ServerController@inddex');
