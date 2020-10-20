@@ -509,7 +509,7 @@ Visibility.change(function (e, state) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\WEBSERVER\htdocs\panturacode_produk\monitor\resources\js\index.js */"./resources/js/index.js");
+module.exports = __webpack_require__(/*! D:\WEBSERVER\htdocs\monitor\resources\js\index.js */"./resources/js/index.js");
 
 
 /***/ })
