@@ -112,7 +112,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{ url('memory') }}" class="nav-link{{ request()->is('memory') ? ' active' : '' }}">
               <i class="nav-icon fas fa-memory"></i>
               <p>
@@ -127,7 +127,7 @@
                 Storage 
               </p>
             </a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a href="{{ url('system') }}" class="nav-link{{ request()->is('system') ? ' active' : '' }}">
               <i class="nav-icon fas fa-database"></i>
@@ -145,7 +145,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('monitor') }}" class="nav-link{{ request()->is('monitor') ? ' active' : '' }}">
+            <a href="{{ url('monitoring') }}" class="nav-link{{ request()->is('monitoring') ? ' active' : '' }}">
               <i class="nav-icon fas fa-server"></i>
               <p>
                 Monitor

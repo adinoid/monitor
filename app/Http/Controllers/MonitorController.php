@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Host;
 use Illuminate\Support\Facades\Cache;
 
-class MonitorController extends Controller
+class MonitoringController extends Controller
 {
   public function index()
   {

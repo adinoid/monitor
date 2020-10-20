@@ -29,6 +29,6 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/cek', 'CekController@index');
 
-  Route::get('/monitor', 'MonitorController@index');
+  Route::get('/monitoring', 'MonitoringController@index');
   Route::post('/page-visibility', 'MonitorController@updatePageVisibility');
 });
