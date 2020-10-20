@@ -47,16 +47,16 @@ return [
     'notifications' => [
 
         'notifications' => [
-            Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => [],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => ['slack'],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => ['slack'],
-            Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => ['slack'],
+            // Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => [],
+            // Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => ['slack'],
+            // Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => ['slack'],
+            // Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => ['slack'],
 
-            Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => ['slack'],
-            // Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => [PusherChannelsChannel::class],
-            // Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => [PusherChannelsChannel::class],
-            // Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => [PusherChannelsChannel::class],
-            // Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => [PusherChannelsChannel::class],
+            // Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => ['slack'],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckSucceeded::class => [PusherChannelsChannel::class],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckRestored::class => [PusherChannelsChannel::class],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckWarning::class => [PusherChannelsChannel::class],
+            Spatie\ServerMonitor\Notifications\Notifications\CheckFailed::class => [PusherChannelsChannel::class],
         ],
 
         /*
@@ -67,7 +67,7 @@ return [
 
         // Separate the email by , to add many recipients
         'mail' => [
-            'to' => 'your@email.com',
+            'to' => 'officepanturacode@gmail.com',
         ],
 
         'slack' => [
