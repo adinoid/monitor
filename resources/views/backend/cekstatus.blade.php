@@ -7,12 +7,12 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Processor</h1>
+        <h1>Cek Status</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
-          <li class="breadcrumb-item active">Processor</li>
+          <li class="breadcrumb-item active">Cek Status</li>
         </ol>
       </div>
     </div>

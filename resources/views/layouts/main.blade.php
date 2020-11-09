@@ -105,13 +105,21 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ url('cekstatus') }}" class="nav-link{{ request()->is('cekstatus') ? ' active' : '' }}">
+              <i class="nav-icon fas fa-microchip"></i>
+              <p>
+                Cek Status
+              </p>
+            </a>
+          </li>
+          {{-- <li class="nav-item">
             <a href="{{ url('processor') }}" class="nav-link{{ request()->is('processor') ? ' active' : '' }}">
               <i class="nav-icon fas fa-microchip"></i>
               <p>
                 Processor 
               </p>
             </a>
-          </li>
+          </li> --}}
           {{-- <li class="nav-item">
             <a href="{{ url('memory') }}" class="nav-link{{ request()->is('memory') ? ' active' : '' }}">
               <i class="nav-icon fas fa-memory"></i>
@@ -136,7 +144,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="{{ url('cek') }}" class="nav-link{{ request()->is('cek') ? ' active' : '' }}">
               <i class="nav-icon fas fa-desktop"></i>
               <p>
@@ -151,7 +159,7 @@
                 Monitor
               </p>
             </a>
-          </li>
+          </li> --}}
       
         </ul>
       </nav>

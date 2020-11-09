@@ -24,7 +24,9 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/', 'HomeController@index');
   Route::get('/home', 'HomeController@index');
   Route::get('/server', 'ServerController@index');
-  Route::get('/processor', 'ProcessorController@index');
+  Route::get('/cekstatus', 'CekstatusController@index');
+  Route::get('/system', 'SystemController@index');
+  // Route::get('/processor', 'ProcessorController@index');
   Route::get('/statusserver', 'StatusServerController@index');
 
   Route::get('/cek', 'CekController@index');

@@ -15,21 +15,27 @@ class ProcessorController extends Controller
 
     public function index()
     {
-        // $hosts = Host::get();
-        // $cpus = Check::where('type', 'cpu')->get();
-        // return view('backend/processor',  [
-        //     'hosts' => $hosts,
-        //     'cpus' => $cpus
-        // ]);
-
-
-
-        // $hosts = Host::get();
-        // $cpus = Check::where('type', 'cpu')->get();
-        $hosts = Host::join('checks', 'checks.host_id', '=', 'hosts.id')->where('type', 'cpu')->get();
+        $hosts = Host::get();
+        $cpus = Check::where('type', 'cpu')
+            ->orWhere('type', 'memory')
+            ->orWhere('type', 'diskspace')
+            ->get();
         return view('backend/processor',  [
-            'hosts' => $hosts
+            'hosts' => $hosts,
+            'cpus' => $cpus
         ]);
+
+
+
+        // $hosts = Host::get();
+        // $cpus = Check::where('type', 'cpu')->get();
+
+
+
+        // $hosts = Host::join('checks', 'checks.host_id', '=', 'hosts.id')->get();
+        // return view('backend/processor',  [
+        //     'hosts' => $hosts
+        // ]);
 
         // ->select('users.*', 'contacts.phone', 'orders.price')
     }
