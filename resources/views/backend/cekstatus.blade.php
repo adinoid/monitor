@@ -47,7 +47,7 @@
             {{-- @forelse ($host->checks as $check) --}}
             @forelse ($cpus as $check)
             <div class="col-md-4 mb-3 text-center">
-              <textarea type="text" class="knob" value="{{ $check->last_run_message }}" data-width="120" data-height="120" readonly data-fgColor="{{ ($check->last_run_message) < 51 ? 'blue' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) <= 80 ? 'orange' : 'red' ) }}">{{ $check->last_run_message }}</textarea>
+              <textarea type="text" class="knob" value="{{ $check->last_run_message }}" data-width="120" data-height="120" readonly data-fgColor="{{ ($check->last_run_message) < 20 ? 'green' : ( ($check->last_run_message) >= 20 && ($check->last_run_message) < 40 ? 'orange' : 'red' ) }}">{{ $check->last_run_message }}</textarea>
 
               <div class="knob-label">{{ $check->type }}</div>
               <hr>
