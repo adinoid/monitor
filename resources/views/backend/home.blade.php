@@ -43,7 +43,7 @@
             <br>
             <h4><strong>RIDHO SUBHI <br>
               H1051131049</strong></h4>
-              <h4 class="mt-3">PROGDISK STUDI REKAYASA SISTEM KOMPUTER <br>
+              <h4 class="mt-3">PRODI STUDI REKAYASA SISTEM KOMPUTER <br>
                 FAKULTAS MATEMATIKA DAN ILMU PENGETAHUAN ALAM <br>
                 UNIVERSITAS TANJUNGPURA <br>
                 PONTIANAK <br>
