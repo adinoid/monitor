@@ -16,20 +16,14 @@ class SystemController extends Controller
 
   public function index()
   {
-    // $hosts = Host::get();
-
     $hosts = Host::get();
-
-    // $hosts = DB::select('select * from checks where type = :type', ['type' => 'cpu', 'type' => 'memory', 'type' => 'diskspace']);
+    $cpus = Check::where('type', 'mysql')
+      ->orWhere('type', 'apache')
+      ->orWhere('type', 'memcached')
+      ->get();
     return view('backend/system',  [
-      'hosts' => $hosts
+      'hosts' => $hosts,
+      'cpu' => $cpus
     ]);
-
-
-    // $checks = Check::get();
-    // // $checks = Check::where('type', 'like', 'cpu' or 'memory')->get();
-    // return view('backend/cek',  [
-    //   'checks' => $checks
-    // ]);
   }
 }
