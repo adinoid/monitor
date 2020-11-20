@@ -45,11 +45,13 @@
         <div class="card-body" id="host-{{ $host->id }}">
           <div class="row">
             {{-- @forelse ($host->checks as $check) --}}
-            @forelse ($cpus as $check)
+            @forelse (onlyEnabled($host->checks) as $check)
             <div class="col-md-4 mb-3 text-center">
+              @if ($check->type == "cpu" || $check->type == "diskspace" || $check->type == "memory")
               <textarea type="text" class="knob" value="{{ $check->last_run_message }}" data-width="120" data-height="120" readonly data-fgColor="{{ ($check->last_run_message) < 20 ? 'green' : ( ($check->last_run_message) >= 20 && ($check->last_run_message) < 40 ? 'orange' : 'red' ) }}">{{ $check->last_run_message }}</textarea>
 
               <div class="knob-label">{{ $check->type }}</div>
+              @endif
               <hr>
             </div>
             
