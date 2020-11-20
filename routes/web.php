@@ -24,6 +24,10 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/', 'HomeController@index');
   Route::get('/home', 'HomeController@index');
   Route::get('/server', 'ServerController@index');
+  Route::get('/server/disable/{id}', 'ServerController@disable');
+  Route::get('/server/activate/{id}', 'ServerController@activate');
+
+
   Route::get('/cekstatus', 'CekstatusController@index');
   Route::get('/system', 'SystemController@index');
   // Route::get('/processor', 'ProcessorController@index');

@@ -24,6 +24,13 @@
 <section class="content">
   <div class="container-fluid">
 
+    @if ($message = Session::get('success'))
+      <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button> 
+          <strong>{{ $message }}</strong>
+      </div>
+    @endif
+
     <div class="row">
       @forelse ($hosts as $host)
       <div class="col-md-4">
@@ -47,9 +54,18 @@
               <li class="list-group-item">
                 <b>IP</b> <a class="float-right">{{ $host->ip }}</a>
               </li>
+              <li class="list-group-item">
+                <b>Status</b> <a class="float-right {{ $host->custom_properties == 1 ? 'badge badge-primary' : 'badge badge-secondary' }}">{{ $host->custom_properties == 1 ? 'is active' : 'not active' }}</a>
+              </li>
             </ul>
 
-            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+            @if ($host->custom_properties == 1)
+            <button type="button" class="btn btn-info btn-block" disabled><a href=""><b>Disable</b></a></button>
+
+            {{-- <button type="button" class="btn btn-info btn-block" disabled><a href="{{ url('server/disable/'.$host->id) }}"><b>Disable</b></a></button> --}}
+            @else
+            <a href="{{ url('server/activate/'.$host->id) }}" class="btn btn-success btn-block"><b>Activate</b></a> 
+            @endif
           </div>
           <!-- /.card-body -->
         </div>

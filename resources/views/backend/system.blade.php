@@ -58,6 +58,9 @@
                   @else
                   <a href="#" class="btn btn-success btn-lg disabled" tabindex="-1" role="button" aria-disabled="true"><i class="fas fa-spinner"></i></a> 
                   @endif
+
+                  {{-- <div class="loader2">Loading..</div> --}}
+                  
               
                 </div>
               </div>
