@@ -40,6 +40,11 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 
+      <li class="nav-item mr-5">
+        Server Aktif : <button class="btn btn-primary mr-2" disabled>{{ $server->name = NULL ? '' : $server->name }}</button>
+        Status : <button class="btn btn-primary" disabled>normal</button>
+      </li>
+
       <li class="nav-item dropdown mr-2">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{ Auth::user()->email }} <i class="fas fa-user mr-2 ml-2"></i>
@@ -65,7 +70,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ asset('template/index3.html') }}" class="brand-link elevation-4">
+    <a href="/" class="brand-link elevation-4">
       <img src="{{ asset('template/dist/img/AdminLTELogo.png') }}"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"

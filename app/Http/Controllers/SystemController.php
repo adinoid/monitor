@@ -16,6 +16,7 @@ class SystemController extends Controller
 
   public function index()
   {
+    $server = Host::where('custom_properties', '1')->first();
     $hosts = Host::get();
     $cpus = Check::where('type', 'mysql')
       ->orWhere('type', 'apache')
@@ -23,7 +24,8 @@ class SystemController extends Controller
       ->get();
     return view('backend/system',  [
       'hosts' => $hosts,
-      'cpu' => $cpus
+      'cpu' => $cpus,
+      'server' => $server,
     ]);
   }
 }

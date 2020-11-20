@@ -16,9 +16,11 @@ class ServerController extends Controller
 
   public function index()
   {
+    $server = Host::where('custom_properties', '1')->first();
     $hosts = Host::get();
     return view('backend/server',  [
-      'hosts' => $hosts
+      'hosts' => $hosts,
+      'server' => $server,
     ]);
   }
 

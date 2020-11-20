@@ -36,10 +36,10 @@
       <div class="col-md-4">
 
         <!-- Profile Image -->
-        <div class="card card-primary card-outline">
+        <div class="card card-{{ $host->custom_properties == 1 ? 'primary' : 'secondary' }} card-outline">
           <div class="card-body box-profile">
             <div class="text-center">
-              <img class="profile-user-img img-fluid img-circle"
+              <img class="profile-user-img img-fluid img-circle {{ $host->custom_properties == 1 ? 'bg-primary' : 'bg-dark' }}"
                    src="/images/server.png">
             </div>
             <h3 class="profile-username text-center">{{ $host->name }}</h3>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Host;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('backend/home');
+        $server = Host::where('custom_properties', '1')->first();
+        return view(
+            'backend/home',
+            [
+                'server' => $server,
+            ]
+        );
     }
 }

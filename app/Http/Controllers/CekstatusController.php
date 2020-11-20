@@ -15,6 +15,7 @@ class CekstatusController extends Controller
 
   public function index()
   {
+    $server = Host::where('custom_properties', '1')->first();
     $hosts = Host::get();
     $cpus = Check::where('type', 'cpu')
       ->orWhere('type', 'memory')
@@ -22,7 +23,8 @@ class CekstatusController extends Controller
       ->get();
     return view('backend/cekstatus',  [
       'hosts' => $hosts,
-      'cpus' => $cpus
+      'cpus' => $cpus,
+      'server' => $server,
     ]);
 
 
