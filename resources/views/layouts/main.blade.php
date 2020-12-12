@@ -51,7 +51,7 @@
 
       <li class="nav-item dropdown mr-2">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->email }} <i class="fas fa-user mr-2 ml-2"></i>
+            {{ Auth::user()->name }} <i class="fas fa-user mr-2 ml-2"></i>
         </a>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
