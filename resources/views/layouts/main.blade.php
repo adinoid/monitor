@@ -39,16 +39,15 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
+      <li class="nav-item mr-5">
+        <button class="btn btn-primary mr-2" disabled>{{ $server->name = NULL ? '' : $server->name }}</button>
+        Status : <button class="btn {{ ($server->last_run_message) < 20 ? 'btn-success' : ( ($server->last_run_message) >= 20 && ($server->last_run_message) < 40 ? 'btn-warning' : 'btn-danger' ) }}" disabled>{{ ($server->last_run_message) < 20 ? 'Normal' : ( ($server->last_run_message) >= 20 && ($server->last_run_message) < 40 ? 'Warning' : 'Critical' ) }}</button>
+      </li>
       
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
-      <li class="nav-item mr-5">
-        Server Aktif : <button class="btn btn-primary mr-2" disabled>{{ $server->name = NULL ? '' : $server->name }}</button>
-        Status : <button class="btn btn-primary" disabled>normal</button>
-      </li>
 
       <li class="nav-item dropdown mr-2">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -33,7 +33,9 @@ class CekstatusController extends Controller
         'last_run_message' => $rand,
       ]);
 
-    $server = Host::where('custom_properties', '1')->first();
+    $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', '1')->first();
     $hosts = Host::get();
     $cpus = Check::where('type', 'cpu')
       ->orWhere('type', 'memory')
