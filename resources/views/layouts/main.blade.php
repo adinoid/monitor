@@ -25,12 +25,8 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-  <!-- jQuery Knob -->
-<script src="{{ asset('template/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-<!-- Sparkline -->
-{{-- <script src="{{ asset('template/plugins/sparkline/jquery.sparkline.min.js') }}"></script> --}}
-  <!-- AdminLTE for demo purposes -->
-{{-- <script src="{{ asset('template/dist/js/demo.js') }}"></script> --}}
+ 
+
 <script src="{{ asset('template/dist/js/knob.js') }}"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
@@ -224,10 +220,10 @@
 <script src="{{ asset('template/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('template/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 
-<!-- jQuery Knob -->
-<script src="{{ asset('template/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('template/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
+ <!-- jQuery Knob -->
+ <script src="{{ asset('template/plugins/jquery-knob/jquery.knob.min.js') }}"></script>
+ <!-- Sparkline -->
+ <script src="{{ asset('template/plugins/sparkline/jquery.sparkline.min.js') }}"></script>
 
 <script src="{{ asset('template/plugins/daterangepicker/daterangepicker.js') }}"></script>
 <!-- AdminLTE App -->

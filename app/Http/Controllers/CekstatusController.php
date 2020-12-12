@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Check;
 use App\Host;
+use App\Check;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CekstatusController extends Controller
 {
@@ -18,14 +19,18 @@ class CekstatusController extends Controller
     $mt_rand = mt_rand(5.0, 45.0);
     $rand = rand(5.0, 50);
 
-    // Check::where('type', 'memory')
-    //   ->update([
-    //     'last_run_message' => $rand,
-    //   ]);
-
-    Check::where('type', 'cpu')
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', 1)
       ->update([
         'last_run_message' => $mt_rand,
+      ]);
+
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'memory')
+      ->where('hosts.custom_properties', 1)
+      ->update([
+        'last_run_message' => $rand,
       ]);
 
     $server = Host::where('custom_properties', '1')->first();
@@ -39,19 +44,5 @@ class CekstatusController extends Controller
       'cpus' => $cpus,
       'server' => $server,
     ]);
-
-
-
-    // $hosts = Host::get();
-    // $cpus = Check::where('type', 'cpu')->get();
-
-
-
-    // $hosts = Host::join('checks', 'checks.host_id', '=', 'hosts.id')->get();
-    // return view('backend/processor',  [
-    //     'hosts' => $hosts
-    // ]);
-
-    // ->select('users.*', 'contacts.phone', 'orders.price')
   }
 }
