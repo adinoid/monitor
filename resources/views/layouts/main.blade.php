@@ -41,7 +41,7 @@
       </li>
       <li class="nav-item mr-5">
         <button class="btn btn-primary mr-2" disabled>{{ $server->name = NULL ? '' : $server->name }}</button>
-        Status : <button class="btn {{ ($server->last_run_message) < 20 ? 'btn-success' : ( ($server->last_run_message) >= 20 && ($server->last_run_message) < 40 ? 'btn-warning' : 'btn-danger' ) }}" disabled>{{ ($server->last_run_message) < 20 ? 'Normal' : ( ($server->last_run_message) >= 20 && ($server->last_run_message) < 40 ? 'Warning' : 'Critical' ) }}</button>
+        <button class="btn {{ ($server->last_run_message) < 20 ? 'btn-success' : ( ($server->last_run_message) >= 20 && ($server->last_run_message) < 40 ? 'btn-warning' : 'btn-danger' ) }}" disabled>{{ ($server->last_run_message) < 20 ? 'Normal' : ( ($server->last_run_message) >= 20 && ($server->last_run_message) < 40 ? 'Warning' : 'Critical' ) }}</button>
       </li>
       
     </ul>
