@@ -20,14 +20,18 @@ class ServerController extends Controller
     $mt_rand = mt_rand(5.0, 45.0);
     $rand = rand(5.0, 50);
 
-    // Check::where('type', 'memory')
-    //   ->update([
-    //     'last_run_message' => $rand,
-    //   ]);
-
-    Check::where('type', 'cpu')
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', 1)
       ->update([
         'last_run_message' => $mt_rand,
+      ]);
+
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'memory')
+      ->where('hosts.custom_properties', 1)
+      ->update([
+        'last_run_message' => $rand,
       ]);
 
     $server = Host::where('custom_properties', '1')->first();
