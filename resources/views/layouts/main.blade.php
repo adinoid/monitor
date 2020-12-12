@@ -39,7 +39,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item mr-5">
+      <li class="nav-item">
         <button class="btn btn-primary mr-2" disabled>{{ $server->name = NULL ? '' : $server->name }}</button>
         <button class="btn {{ ($server->last_run_message) < 20 ? 'btn-success' : ( ($server->last_run_message) >= 20 && ($server->last_run_message) < 40 ? 'btn-warning' : 'btn-danger' ) }}" disabled>{{ ($server->last_run_message) < 20 ? 'Normal' : ( ($server->last_run_message) >= 20 && ($server->last_run_message) < 40 ? 'Warning' : 'Critical' ) }}</button>
       </li>
