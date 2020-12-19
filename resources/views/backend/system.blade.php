@@ -25,14 +25,12 @@
   <div class="container-fluid">
 
   <div class="row">
-    @forelse ($hosts as $host)
-    <div class="col-6">
+    <div class="col">
       <!-- jQuery Knob -->
       <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-primary">
           <h3 class="card-title">
             <i class="far fa-chart-bar"></i>
-            Server {{ $host->name }}
           </h3>
 
           <div class="card-tools">
@@ -42,47 +40,16 @@
           </div>
         </div>
         <!-- /.card-header -->
-        <div class="card-body" id="host-{{ $host->id }}">
-          <div class="row">
-            {{-- @forelse ($host->checks as $check) --}}
-            @forelse (onlyEnabled($host->checks) as $check)
-            <div class="col-6 mb-3 text-center">
-              {{-- @if ($host->checks->type == "mysql" || $check->type == "apache" || $check->type == "memcached") --}}
-
-              <div class="card">
-                <h3>{{ $check->type }}</h3>
-                {{-- <img src="..." class="card-img-top" alt="..."> --}}
-                <div class="card-body">
-                  @if ($check->type == "cpu" || $check->type == "diskspace" || $check->type == "memory")
-                  <a href="#" class="btn btn-success btn-lg disabled" tabindex="-1" role="button" aria-disabled="true"> <i class="fas fa-spinner"></i></a>
-                  @else
-                  <a href="#" class="btn btn-success btn-lg disabled" tabindex="-1" role="button" aria-disabled="true"><i class="fas fa-spinner"></i></a> 
-                  @endif
-
-                  {{-- <div class="loader2">Loading..</div> --}}
-                  
-              
-                </div>
-              </div>
-              {{-- @endif --}}
-              <hr>
-            </div>
-            
-            @empty
-              <p>Belum Bisa Diakses</p>
-            @endforelse
-          </div>
-          <!-- /.row -->
+        <div class="card-body">
+            <figure class="highcharts-figure">
+              <div id="grafik"></div>
+            </figure>
         </div>
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
     </div>
     <!-- /.col -->
-
-    @empty
-    <p>Tidak Ada Server</p>
-    @endforelse
   </div>
   <!-- /.row -->
 
