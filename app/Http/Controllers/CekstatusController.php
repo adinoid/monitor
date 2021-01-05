@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Host;
 use App\Check;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -34,6 +35,18 @@ class CekstatusController extends Controller
       ->update([
         'last_run_message' => $rand,
       ]);
+
+    // ambil nama host server
+    // $id_host = DB::table('hosts')->select('*')
+    //             ->where('custom_properties', 1)
+    //             ->limit(1)
+    //             ->get();
+    // $id_server = $id_host['id'];
+    // DB::table('log_status')->insert([
+    //   'id_hosts' => $id_server,
+    //   'persentase' => $mt_rand,
+    //   'waktu' => Carbon::NOW(),
+    // ]);
 
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'cpu')
