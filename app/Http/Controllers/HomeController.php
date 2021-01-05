@@ -16,8 +16,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $mt_rand = mt_rand(2.0, 45.0);
-        $rand = rand(2.0, 50);
+        $mt_rand = mt_rand(0.1, 99);
+        $rand = rand(0.1, 99);
         // $mt_rand = mt_rand(0, 0);
         // $rand = rand(0, 0);
 
