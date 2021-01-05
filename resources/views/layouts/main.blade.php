@@ -262,7 +262,7 @@
     type: 'line'
   },
   title: {
-    text: 'Performance CPU Server'
+    text: 'History Performance CPU Server'
   },
   subtitle: {
     text: ''
