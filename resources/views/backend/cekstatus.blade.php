@@ -50,7 +50,7 @@
               @if ($check->type == "cpu" || $check->type == "diskspace" || $check->type == "memory")
               <textarea type="text" class="knob" value="{{ $check->last_run_message }}" data-width="120" data-height="120" readonly data-fgColor="{{ ($check->last_run_message) < 51 ? 'green' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) < 91 ? 'orange' : 'red' ) }}">{{ $check->last_run_message }}</textarea>
 
-              <div class="knob-label">{{ $check->type }}</div>
+              <div class="knob-label"><a href="{{ url('cekstatus/'.$check->type) }}">{{ $check->type }}</a></div>
               @endif
               <hr>
             </div>

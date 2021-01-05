@@ -62,4 +62,79 @@ class CekstatusController extends Controller
       'server' => $server,
     ]);
   }
+
+  public function diskspace()
+  {
+    $mt_rand = mt_rand(0.1, 50);
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', 1)
+      ->update([
+        'last_run_message' => $mt_rand,
+      ]);
+
+    $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', '1')->first();
+    $hosts = Host::get();
+    $cpus = Check::where('type', 'cpu')
+      ->orWhere('type', 'memory')
+      ->orWhere('type', 'diskspace')
+      ->get();
+    return view('backend/cekstatus',  [
+      'hosts' => $hosts,
+      'cpus' => $cpus,
+      'server' => $server,
+    ]);
+  }
+
+  public function cpu()
+  {
+    $mt_rand = mt_rand(51, 90);
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', 1)
+      ->update([
+        'last_run_message' => $mt_rand,
+      ]);
+
+    $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', '1')->first();
+    $hosts = Host::get();
+    $cpus = Check::where('type', 'cpu')
+      ->orWhere('type', 'memory')
+      ->orWhere('type', 'diskspace')
+      ->get();
+    return view('backend/cekstatus',  [
+      'hosts' => $hosts,
+      'cpus' => $cpus,
+      'server' => $server,
+    ]);
+  }
+
+  public function memory()
+  {
+    $mt_rand = mt_rand(91, 100);
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', 1)
+      ->update([
+        'last_run_message' => $mt_rand,
+      ]);
+
+    $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'cpu')
+      ->where('hosts.custom_properties', '1')->first();
+    $hosts = Host::get();
+    $cpus = Check::where('type', 'cpu')
+      ->orWhere('type', 'memory')
+      ->orWhere('type', 'diskspace')
+      ->get();
+    return view('backend/cekstatus',  [
+      'hosts' => $hosts,
+      'cpus' => $cpus,
+      'server' => $server,
+    ]);
+  }
 }
