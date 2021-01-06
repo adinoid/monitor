@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2020 at 02:31 PM
+-- Generation Time: Jan 06, 2021 at 11:15 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -43,6 +43,28 @@ CREATE TABLE `checks` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `checks`
+--
+
+INSERT INTO `checks` (`id`, `host_id`, `type`, `status`, `enabled`, `last_run_message`, `last_run_output`, `last_ran_at`, `next_run_in_minutes`, `started_throttling_failing_notifications_at`, `custom_properties`, `created_at`, `updated_at`) VALUES
+(56, 9, 'diskspace', 'failed', 1, '30', '{\"output\":\"\",\"error_output\":\"\",\"exit_code\":1,\"exit_code_text\":\"General error\"}', '2020-11-09 16:09:18', 0, '2020-11-09 16:09:18', '[1]', '2020-10-20 07:43:00', '2020-11-09 16:09:18'),
+(57, 9, 'elasticsearch', 'failed', 1, 'is not running', '{\"output\":\"\",\"error_output\":\"\",\"exit_code\":1,\"exit_code_text\":\"General error\"}', '2020-11-09 16:09:18', 0, '2020-11-09 16:09:18', '[]', '2020-10-20 07:43:00', '2020-11-09 16:09:18'),
+(58, 9, 'memcached', 'failed', 1, 'is not running', '{\"output\":\"\",\"error_output\":\"\",\"exit_code\":1,\"exit_code_text\":\"General error\"}', '2020-11-09 16:09:18', 0, '2020-11-09 16:09:18', '[]', '2020-10-20 07:43:00', '2020-11-09 16:09:18'),
+(59, 9, 'mysql', 'failed', 1, 'is not running', '{\"output\":\"\",\"error_output\":\"\",\"exit_code\":1,\"exit_code_text\":\"General error\"}', '2020-11-09 16:09:18', 0, '2020-11-09 16:09:18', '[]', '2020-10-20 07:43:00', '2020-11-09 16:09:18'),
+(60, 9, 'apache', 'failed', 1, 'is not running', '{\"output\":\"\",\"error_output\":\"\",\"exit_code\":1,\"exit_code_text\":\"General error\"}', '2020-11-09 16:09:19', 0, '2020-11-09 16:09:18', '[]', '2020-10-20 07:43:00', '2020-11-09 16:09:19'),
+(61, 9, 'beanstalkd', 'failed', 1, 'is not running', '{\"output\":\"\",\"error_output\":\"\",\"exit_code\":1,\"exit_code_text\":\"General error\"}', '2020-11-09 16:09:19', 0, '2020-11-09 16:09:19', '[]', '2020-10-20 07:43:00', '2020-11-09 16:09:19'),
+(62, 9, 'cpu', 'not yet checked', 1, '41', NULL, NULL, NULL, NULL, '[1]', '2020-10-20 07:43:00', '2020-12-12 06:53:29'),
+(63, 9, 'memory', 'success', 1, '30', NULL, NULL, NULL, NULL, '[1]', '2020-10-20 07:43:00', '2020-11-20 16:12:02'),
+(80, 12, 'diskspace', 'not yet checked', 1, '30.6', NULL, NULL, NULL, NULL, '[]', '2020-11-09 16:09:04', '2020-11-09 16:09:04'),
+(81, 12, 'elasticsearch', 'not yet checked', 1, NULL, NULL, NULL, NULL, NULL, '[]', '2020-11-09 16:09:04', '2020-11-09 16:09:04'),
+(82, 12, 'memcached', 'not yet checked', 1, NULL, NULL, NULL, NULL, NULL, '[]', '2020-11-09 16:09:04', '2020-11-09 16:09:04'),
+(83, 12, 'mysql', 'not yet checked', 1, NULL, NULL, NULL, NULL, NULL, '[]', '2020-11-09 16:09:04', '2020-11-09 16:09:04'),
+(84, 12, 'apache', 'not yet checked', 1, NULL, NULL, NULL, NULL, NULL, '[]', '2020-11-09 16:09:04', '2020-11-09 16:09:04'),
+(85, 12, 'beanstalkd', 'not yet checked', 1, NULL, NULL, NULL, NULL, NULL, '[]', '2020-11-09 16:09:04', '2020-11-09 16:09:04'),
+(86, 12, 'cpu', 'not yet checked', 1, '3', NULL, NULL, NULL, NULL, '[]', '2020-11-09 16:09:04', '2020-12-12 06:53:29'),
+(87, 12, 'memory', 'not yet checked', 1, '42', NULL, NULL, NULL, NULL, '[]', '2020-11-09 16:09:04', '2020-11-20 16:12:02');
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +96,36 @@ CREATE TABLE `hosts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `hosts`
+--
+
+INSERT INTO `hosts` (`id`, `name`, `ssh_user`, `port`, `ip`, `custom_properties`, `created_at`, `updated_at`) VALUES
+(9, 'server1', 'root', 22, '52.2.94.107', '0', '2020-10-20 07:43:00', '2020-12-12 06:28:04'),
+(12, 'server2', 'root', 22, '52.2.94.107', '1', '2020-11-09 16:09:04', '2020-12-12 06:38:24');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log_status`
+--
+
+CREATE TABLE `log_status` (
+  `id_log` int(11) NOT NULL,
+  `id_hosts` int(10) UNSIGNED DEFAULT NULL,
+  `persentase` float DEFAULT NULL,
+  `waktu` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `log_status`
+--
+
+INSERT INTO `log_status` (`id_log`, `id_hosts`, `persentase`, `waktu`) VALUES
+(1, 9, 3, '2020-12-08 14:04:02'),
+(2, 12, 31, '2020-12-28 14:12:12'),
+(3, 12, 42, '2020-12-28 14:12:45');
 
 -- --------------------------------------------------------
 
@@ -140,24 +192,6 @@ CREATE TABLE `status_servers` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tes`
---
-
-CREATE TABLE `tes` (
-  `id` int(11) NOT NULL,
-  `angka` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tes`
---
-
-INSERT INTO `tes` (`id`, `angka`) VALUES
-(1, 75);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -178,7 +212,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'ok', 'ok@gmail.com', NULL, '$2y$10$IySHv7KThdpfj1u9llHf.eoiVvK/5gPUFYy9wzv5XuJyhUZpPlNkW', NULL, '2020-08-28 02:22:17', '2020-08-28 02:22:17'),
-(2, 'admin1', 'admin1@gmail.com', NULL, '$2y$10$vjcAE.UQLBX1onEelIIeY.zBLYT3UB1KoGQ6Fal/LO5lBCh0lJ47y', 'tOl6tlff9OK0ExZT0kTJo2tFRlmaAFl5x5UfiE298H1N45LIzA3uEFGHAVtT', '2020-09-09 07:15:37', '2020-09-09 07:15:37');
+(2, 'admin1', 'admin1@gmail.com', NULL, '$2y$10$vjcAE.UQLBX1onEelIIeY.zBLYT3UB1KoGQ6Fal/LO5lBCh0lJ47y', 'IQDtxj6dMdUScW9GYSv7PSojF33NZG16FutVWckvF51MTYgHZhdt28t1rdlM', '2020-09-09 07:15:37', '2020-09-09 07:15:37');
 
 --
 -- Indexes for dumped tables
@@ -204,6 +238,13 @@ ALTER TABLE `hosts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `log_status`
+--
+ALTER TABLE `log_status`
+  ADD PRIMARY KEY (`id_log`),
+  ADD KEY `fk_log_hosts` (`id_hosts`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -222,12 +263,6 @@ ALTER TABLE `status_servers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tes`
---
-ALTER TABLE `tes`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -242,7 +277,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `checks`
 --
 ALTER TABLE `checks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -254,7 +289,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `hosts`
 --
 ALTER TABLE `hosts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `log_status`
+--
+ALTER TABLE `log_status`
+  MODIFY `id_log` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -283,6 +324,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `checks`
   ADD CONSTRAINT `checks_host_id_foreign` FOREIGN KEY (`host_id`) REFERENCES `hosts` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `log_status`
+--
+ALTER TABLE `log_status`
+  ADD CONSTRAINT `fk_log_hosts` FOREIGN KEY (`id_hosts`) REFERENCES `hosts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
