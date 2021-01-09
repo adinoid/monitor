@@ -7,7 +7,16 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Cek Status</h1>
+        <div class="row">
+          <div class="col-4">
+            <h1>Cek Status</h1>
+          </div>
+          <div class="col-8">
+            <button class="btn btn-primary mr-2" disabled>{{ $server->name = NULL ? '' : $server->name }}</button>
+            <button class="btn {{ ($server->last_run_message) < 51 ? 'btn-success' : ( ($server->last_run_message) >= 51 && ($server->last_run_message) < 91 ? 'btn-warning' : 'btn-danger' ) }}" disabled>{{ ($server->last_run_message) < 51 ? 'Normal' : ( ($server->last_run_message) >= 51 && ($server->last_run_message) < 91 ? 'Warning' : 'Critical' ) }}</button>
+          </div>
+        </div>
+        
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
