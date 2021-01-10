@@ -56,7 +56,7 @@
 
             @forelse (onlyEnabled($host->checks) as $check)
             <div class="col">
-              @if ($check->type == "cpu" && $check->host_id == 9 || $check->type == "cpu" && $check->host_id == 12)
+              @if ($check->type == "memory" && $check->host_id == 9 || $check->type == "memory" && $check->host_id == 12)
               {{-- <button class="btn {{ ($check->last_run_message) < 51 ? 'btn-success' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) < 91 ? 'btn-warning' : 'btn-danger' ) }}" type="button" disabled>
                 <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                 <span class="sr-only">Status Normal</span>
@@ -69,8 +69,8 @@
                 <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
               </div> --}}
 
-              <h1 class="display-4">{{ ((($check->type) == "cpu" && ($check->last_run_message) < 50)) ? 'Normal' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91) ? 'Warning' : 'Critical' ) }}</h1>
-              <div class="{{ ((($check->type) == "cpu" && ($check->last_run_message) < 50)) ? 'lingkaranhijau' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91) ? 'lingkarankuning' : 'lingkaranmerah' ) }}"></div>
+              <h1 class="display-4">{{ ((($check->type) == "memory" && ($check->last_run_message) < 50)) ? 'Normal' : ( (($check->type) == "memory" && ($check->last_run_message) < 91) ? 'Warning' : 'Critical' ) }}</h1>
+              <div class="{{ ((($check->type) == "memory" && ($check->last_run_message) < 50)) ? 'lingkaranhijau' : ( (($check->type) == "memory" && ($check->last_run_message) < 91) ? 'lingkarankuning' : 'lingkaranmerah' ) }}"></div>
               {{-- <h1 class="display-4">{{ (((($check->type) == "cpu" && ($check->last_run_message) < 50 && ($check->type) == "memory" && ($check->last_run_message) < 31)) ? 'Normal' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91 && ($check->type) == "memory" && ($check->last_run_message) < 31)) ? 'Normal' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91 && ($check->type) == "memory" && ($check->last_run_message) < 51)) ? 'Warning' : ( (($check->type) == "cpu" && ($check->last_run_message) > 90 && ($check->type) == "memory" && ($check->last_run_message) >= 51)) ? 'Warning' : 'Critical') }}</h1>
               <div class="{{ ((($check->type) == "cpu" && ($check->last_run_message) > 50)) ? 'lingkaranhijau' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91) ? 'lingkarankuning' : 'lingkaranmerah' ) }}"></div> --}}
               @endif

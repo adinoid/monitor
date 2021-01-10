@@ -49,7 +49,7 @@ class CekstatusController extends Controller
     // ]);
 
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
-      ->where('checks.type', 'cpu')
+      ->where('checks.type', 'memory')
       ->where('hosts.custom_properties', '1')->first();
     $hosts = Host::get();
     // $hosts = Host::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id');
@@ -69,6 +69,7 @@ class CekstatusController extends Controller
   public function diskspace()
   {
     $mt_rand = mt_rand(0.1, 50);
+    $rand = rand(0.1, 50);
     DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'cpu')
       ->where('hosts.custom_properties', 1)
@@ -76,8 +77,15 @@ class CekstatusController extends Controller
         'last_run_message' => $mt_rand,
       ]);
 
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'memory')
+      ->where('hosts.custom_properties', 1)
+      ->update([
+        'last_run_message' => $rand,
+      ]);
+
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
-      ->where('checks.type', 'cpu')
+      ->where('checks.type', 'memory')
       ->where('hosts.custom_properties', '1')->first();
     $hosts = Host::get();
     $cpus = Check::where('type', 'cpu')
@@ -94,6 +102,7 @@ class CekstatusController extends Controller
   public function cpu()
   {
     $mt_rand = mt_rand(51, 90);
+    $rand = rand(51, 90);
     DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'cpu')
       ->where('hosts.custom_properties', 1)
@@ -101,8 +110,15 @@ class CekstatusController extends Controller
         'last_run_message' => $mt_rand,
       ]);
 
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'memory')
+      ->where('hosts.custom_properties', 1)
+      ->update([
+        'last_run_message' => $rand,
+      ]);
+
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
-      ->where('checks.type', 'cpu')
+      ->where('checks.type', 'memory')
       ->where('hosts.custom_properties', '1')->first();
     $hosts = Host::get();
     $cpus = Check::where('type', 'cpu')
@@ -119,6 +135,7 @@ class CekstatusController extends Controller
   public function memory()
   {
     $mt_rand = mt_rand(91, 100);
+    $rand = rand(91, 100);
     DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'cpu')
       ->where('hosts.custom_properties', 1)
@@ -126,8 +143,17 @@ class CekstatusController extends Controller
         'last_run_message' => $mt_rand,
       ]);
 
+    DB::table('checks')->join('hosts', 'checks.host_id', '=', 'hosts.id')
+      ->where('checks.type', 'memory')
+      ->where('hosts.custom_properties', 1)
+      ->update([
+        'last_run_message' => $rand,
+      ]);
+
+
+
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
-      ->where('checks.type', 'cpu')
+      ->where('checks.type', 'memory')
       ->where('hosts.custom_properties', '1')->first();
     $hosts = Host::get();
     $cpus = Check::where('type', 'cpu')
