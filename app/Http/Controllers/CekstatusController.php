@@ -38,15 +38,15 @@ class CekstatusController extends Controller
 
     // ambil nama host server
     // $id_host = DB::table('hosts')->select('*')
-    //             ->where('custom_properties', 1)
-    //             ->limit(1)
-    //             ->get();
-    // $id_server = $id_host['id'];
-    // DB::table('log_status')->insert([
-    //   'id_hosts' => $id_server,
-    //   'persentase' => $mt_rand,
-    //   'waktu' => Carbon::NOW(),
-    // ]);
+    //   ->where('custom_properties', 1)
+    //   ->limit(1)
+    //   ->get();
+    $id_server = 9;
+    DB::table('log_status')->insert([
+      'id_hosts' => $id_server,
+      'persentase' => $mt_rand,
+      'waktu' => Carbon::NOW(),
+    ]);
 
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'memory')
@@ -84,6 +84,13 @@ class CekstatusController extends Controller
         'last_run_message' => $rand,
       ]);
 
+    $id_server = 9;
+    DB::table('log_status')->insert([
+      'id_hosts' => $id_server,
+      'persentase' => $mt_rand,
+      'waktu' => Carbon::NOW(),
+    ]);
+
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'memory')
       ->where('hosts.custom_properties', '1')->first();
@@ -116,6 +123,13 @@ class CekstatusController extends Controller
       ->update([
         'last_run_message' => $rand,
       ]);
+
+    $id_server = 9;
+    DB::table('log_status')->insert([
+      'id_hosts' => $id_server,
+      'persentase' => $mt_rand,
+      'waktu' => Carbon::NOW(),
+    ]);
 
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'memory')
@@ -150,7 +164,12 @@ class CekstatusController extends Controller
         'last_run_message' => $rand,
       ]);
 
-
+    $id_server = 9;
+    DB::table('log_status')->insert([
+      'id_hosts' => $id_server,
+      'persentase' => $mt_rand,
+      'waktu' => Carbon::NOW(),
+    ]);
 
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'memory')

@@ -36,6 +36,13 @@ class ServerController extends Controller
         'last_run_message' => $rand,
       ]);
 
+    $id_server = 9;
+    DB::table('log_status')->insert([
+      'id_hosts' => $id_server,
+      'persentase' => $mt_rand,
+      'waktu' => Carbon::NOW(),
+    ]);
+
     $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
       ->where('checks.type', 'cpu')
       ->where('hosts.custom_properties', '1')->first();

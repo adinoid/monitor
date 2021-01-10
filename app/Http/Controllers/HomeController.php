@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Host;
 use App\Check;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -34,6 +35,13 @@ class HomeController extends Controller
             ->update([
                 'last_run_message' => $rand,
             ]);
+
+        $id_server = 9;
+        DB::table('log_status')->insert([
+            'id_hosts' => $id_server,
+            'persentase' => $mt_rand,
+            'waktu' => Carbon::NOW(),
+        ]);
 
         $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
             ->where('checks.type', 'cpu')
