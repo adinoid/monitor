@@ -27,22 +27,22 @@
 
   <style>
     .lingkaranhijau{
-      width: 200px;
-      height: 200px;
+      width: 130px;
+      height: 130px;
       background: #03612d;
       border-radius: 100%;
     }
 
     .lingkarankuning{
-      width: 200px;
-      height: 200px;
+      width: 130px;
+      height: 130px;
       background: #fca503;
       border-radius: 100%;
     }
 
     .lingkaranmerah{
-      width: 200px;
-      height: 200px;
+      width: 130px;
+      height: 130px;
       background: #ff0202;
       border-radius: 100%;
     }

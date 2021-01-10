@@ -68,8 +68,11 @@
               <div class="progress">
                 <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
               </div> --}}
-              <h1 class="display-4">{{ ($check->last_run_message) < 51 ? 'Normal' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) < 91 ? 'Warning' : 'Critical' ) }}</h1>
-              <div class="{{ ($check->last_run_message) < 51 ? 'lingkaranhijau' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) < 91 ? 'lingkarankuning' : 'lingkaranmerah' ) }}"></div>
+
+              <h1 class="display-4">{{ ((($check->type) == "cpu" && ($check->last_run_message) < 50)) ? 'Normal' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91) ? 'Warning' : 'Critical' ) }}</h1>
+              <div class="{{ ((($check->type) == "cpu" && ($check->last_run_message) < 50)) ? 'lingkaranhijau' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91) ? 'lingkarankuning' : 'lingkaranmerah' ) }}"></div>
+              {{-- <h1 class="display-4">{{ (((($check->type) == "cpu" && ($check->last_run_message) < 50 && ($check->type) == "memory" && ($check->last_run_message) < 31)) ? 'Normal' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91 && ($check->type) == "memory" && ($check->last_run_message) < 31)) ? 'Normal' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91 && ($check->type) == "memory" && ($check->last_run_message) < 51)) ? 'Warning' : ( (($check->type) == "cpu" && ($check->last_run_message) > 90 && ($check->type) == "memory" && ($check->last_run_message) >= 51)) ? 'Warning' : 'Critical') }}</h1>
+              <div class="{{ ((($check->type) == "cpu" && ($check->last_run_message) > 50)) ? 'lingkaranhijau' : ( (($check->type) == "cpu" && ($check->last_run_message) < 91) ? 'lingkarankuning' : 'lingkaranmerah' ) }}"></div> --}}
               @endif
             </div>
             @empty
