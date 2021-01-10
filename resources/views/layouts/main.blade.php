@@ -25,6 +25,29 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+  <style>
+    .lingkaranhijau{
+      width: 200px;
+      height: 200px;
+      background: #03612d;
+      border-radius: 100%;
+    }
+
+    .lingkarankuning{
+      width: 200px;
+      height: 200px;
+      background: #fca503;
+      border-radius: 100%;
+    }
+
+    .lingkaranmerah{
+      width: 200px;
+      height: 200px;
+      background: #ff0202;
+      border-radius: 100%;
+    }
+  </style>
+
  
 
 <script src="{{ asset('template/dist/js/knob.js') }}"></script>

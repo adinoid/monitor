@@ -52,6 +52,9 @@ class CekstatusController extends Controller
       ->where('checks.type', 'cpu')
       ->where('hosts.custom_properties', '1')->first();
     $hosts = Host::get();
+    // $hosts = Host::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id');
+    //   ->where('checks.type', 'cpu')
+    //   ->where('hosts.custom_properties', '1')->first();
     $cpus = Check::where('type', 'cpu')
       ->orWhere('type', 'memory')
       ->orWhere('type', 'diskspace')

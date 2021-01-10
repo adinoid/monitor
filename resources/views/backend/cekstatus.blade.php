@@ -52,14 +52,46 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body" id="host-{{ $host->id }}">
+          <div class="row mb-3">
+
+            @forelse (onlyEnabled($host->checks) as $check)
+            <div class="col">
+              @if ($check->type == "cpu" && $check->host_id == 9 || $check->type == "cpu" && $check->host_id == 12)
+              {{-- <button class="btn {{ ($check->last_run_message) < 51 ? 'btn-success' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) < 91 ? 'btn-warning' : 'btn-danger' ) }}" type="button" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                <span class="sr-only">Status Normal</span>
+              </button>
+              <button class="btn btn-success" type="button" disabled>
+                <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                Status Normal
+              </button>
+              <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div> --}}
+              <h1 class="display-4">{{ ($check->last_run_message) < 51 ? 'Normal' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) < 91 ? 'Warning' : 'Critical' ) }}</h1>
+              <div class="{{ ($check->last_run_message) < 51 ? 'lingkaranhijau' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) < 91 ? 'lingkarankuning' : 'lingkaranmerah' ) }}"></div>
+              @endif
+            </div>
+            @empty
+              <p>Belum Bisa Diakses</p>
+            @endforelse
+          </div>
+          
           <div class="row">
+            {{-- <textarea type="text" class="knob" value="Status" data-width="120" data-height="120" readonly data-fgColor="green">Normal</textarea> --}}
             {{-- @forelse ($host->checks as $check) --}}
+            
             @forelse (onlyEnabled($host->checks) as $check)
             <div class="col-md-4 mb-3 text-center">
+
+              
+              
               @if ($check->type == "cpu" || $check->type == "diskspace" || $check->type == "memory")
               <textarea type="text" class="knob" value="{{ $check->last_run_message }}" data-width="120" data-height="120" readonly data-fgColor="{{ ($check->last_run_message) < 51 ? 'green' : ( ($check->last_run_message) >= 51 && ($check->last_run_message) < 91 ? 'orange' : 'red' ) }}">{{ $check->last_run_message }}</textarea>
 
               <div class="knob-label"><a href="{{ url('cekstatus/'.$check->type) }}">{{ $check->type }}</a></div>
+              @else
+                <div></div>
               @endif
               <hr>
             </div>
