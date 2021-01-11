@@ -78,6 +78,8 @@
                       <p>Halaman akan dialihkan ?</p>
                     </div>
                     <div class="modal-footer">
+                      <?php 
+                        shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j DROP"); ?>
                       <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Batal</button>
                       <button type="submit" class="btn btn-primary btn-flat" id="aktif">Alihkan</button>
                     </div>
