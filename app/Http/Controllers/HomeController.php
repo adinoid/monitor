@@ -46,11 +46,17 @@ class HomeController extends Controller
         $server =  DB::table('hosts')->join('checks', 'checks.host_id', '=', 'hosts.id')
             ->where('checks.type', 'cpu')
             ->where('hosts.custom_properties', '1')->first();
+
+        $persentase = DB::table('log_status')->select('persentase as persentase')->orderBy('id_log', 'asc')->get();
+        $waktu = DB::table('log_status')->select('waktu as waktu')->orderBy('id_log', 'asc')->get();
         return view(
             'backend/home',
             [
                 'server' => $server,
+                'persentase' => $persentase,
+                'waktu' => $waktu,
             ]
+
         );
     }
 }

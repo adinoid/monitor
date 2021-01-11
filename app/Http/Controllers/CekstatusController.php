@@ -59,10 +59,14 @@ class CekstatusController extends Controller
       ->orWhere('type', 'memory')
       ->orWhere('type', 'diskspace')
       ->get();
+    $persentase = DB::table('log_status')->select('persentase as persentase')->orderBy('id_log', 'asc')->get();
+    $waktu = DB::table('log_status')->select('waktu as waktu')->orderBy('id_log', 'asc')->get();
     return view('backend/cekstatus',  [
       'hosts' => $hosts,
       'cpus' => $cpus,
       'server' => $server,
+      'persentase' => $persentase,
+      'waktu' => $waktu,
     ]);
   }
 
@@ -99,10 +103,14 @@ class CekstatusController extends Controller
       ->orWhere('type', 'memory')
       ->orWhere('type', 'diskspace')
       ->get();
+    $persentase = DB::table('log_status')->select('persentase as persentase')->orderBy('id_log', 'asc')->get();
+    $waktu = DB::table('log_status')->select('waktu as waktu')->orderBy('id_log', 'asc')->get();
     return view('backend/cekstatus',  [
       'hosts' => $hosts,
       'cpus' => $cpus,
       'server' => $server,
+      'persentase' => $persentase,
+      'waktu' => $waktu,
     ]);
   }
 
@@ -139,10 +147,14 @@ class CekstatusController extends Controller
       ->orWhere('type', 'memory')
       ->orWhere('type', 'diskspace')
       ->get();
+    $persentase = DB::table('log_status')->select('persentase as persentase')->orderBy('id_log', 'asc')->get();
+    $waktu = DB::table('log_status')->select('waktu as waktu')->orderBy('id_log', 'asc')->get();
     return view('backend/cekstatus',  [
       'hosts' => $hosts,
       'cpus' => $cpus,
       'server' => $server,
+      'persentase' => $persentase,
+      'waktu' => $waktu
     ]);
   }
 
@@ -179,10 +191,15 @@ class CekstatusController extends Controller
       ->orWhere('type', 'memory')
       ->orWhere('type', 'diskspace')
       ->get();
+
+    $persentase = DB::table('log_status')->select('persentase as persentase')->orderBy('id_log', 'asc')->get();
+    $waktu = DB::table('log_status')->select('waktu as waktu')->orderBy('id_log', 'asc')->get();
     return view('backend/cekstatus',  [
       'hosts' => $hosts,
       'cpus' => $cpus,
       'server' => $server,
+      'persentase' => $persentase,
+      'waktu' => $waktu,
     ]);
   }
 }

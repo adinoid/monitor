@@ -21,8 +21,16 @@
 @endsection
 
 @section('content')
+
 <section class="content">
   <div class="container-fluid">
+
+    @if ($message = Session::get('success'))
+      <div class="alert alert-warning alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button> 
+          <strong>{{ $message }}</strong>
+      </div>
+    @endif
 
   <div class="row">
     <div class="col">
@@ -31,6 +39,7 @@
         <div class="card-header bg-primary">
           <h3 class="card-title">
             <i class="far fa-chart-bar"></i>
+            <a href="{{ url('system/resetlog') }}"><button class="btn btn-light ml-3">Reset Log History</button></a>
           </h3>
 
           <div class="card-tools">

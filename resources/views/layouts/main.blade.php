@@ -230,6 +230,19 @@
   </aside>
   <!-- /.control-sidebar -->
 </div>
+<?php
+foreach ($waktu as $result) {
+  $waktu[] = $result->waktu;
+  // $persentase[] = (float)$result->persentase;
+}
+
+foreach ($persentase as $result) {
+  $persentase[] = (float)$result->persentase;
+}
+?>
+
+
+
 <!-- ./wrapper -->
 
 <!-- jQuery -->
@@ -261,7 +274,7 @@
 <script src="{{ asset('template/build/highcharts/accessibility.js') }}"></script>
 
 <!-- page script -->
-<script>
+{{-- <script>
   $(function () {
     $("#example1").DataTable({
       "responsive": true,
@@ -345,6 +358,44 @@
       0.0, 11.4, 64.9, 63.3, 59.6, 62.5, 78.1, 88.7, 79.2, 74.8,
       0.7, 12.5, 31.5, 48.3, 39.9, 24.0, 67.3, 42.8, 22.7, 23.0
     ]
+  }]
+});
+</script> --}}
+
+<script>
+  // var persentase =  <?= $persentase ?>, waktu =  <?= $waktu ?>;
+
+  Highcharts.chart('grafik', {
+  chart: {
+    type: 'line'
+  },
+  title: {
+    text: 'History Performance CPU Server'
+  },
+  subtitle: {
+    text: ''
+  },
+  xAxis: {
+    categories: <?= json_encode($waktu) ?>,
+    // categories: ok,
+  },
+  yAxis: {
+    title: {
+      text: 'Persentase (%)'
+    }
+  },
+  plotOptions: {
+    line: {
+      dataLabels: {
+        enabled: true
+      },
+      enableMouseTracking: false
+    }
+  },
+  series: [{
+    name: 'Server',
+    data: <?= json_encode($persentase) ?>,
+    // data: ok,
   }]
 });
 </script>

@@ -47,9 +47,14 @@ class ServerController extends Controller
       ->where('checks.type', 'cpu')
       ->where('hosts.custom_properties', '1')->first();
     $hosts = Host::get();
+
+    $persentase = DB::table('log_status')->select('persentase as persentase')->orderBy('id_log', 'asc')->get();
+    $waktu = DB::table('log_status')->select('waktu as waktu')->orderBy('id_log', 'asc')->get();
     return view('backend/server',  [
       'hosts' => $hosts,
       'server' => $server,
+      'persentase' => $persentase,
+      'waktu' => $waktu,
     ]);
   }
 

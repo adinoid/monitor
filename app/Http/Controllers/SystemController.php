@@ -7,6 +7,7 @@ use App\Check;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Routing\Controller;
 
 class SystemController extends Controller
 {
@@ -51,10 +52,36 @@ class SystemController extends Controller
       ->orWhere('type', 'apache')
       ->orWhere('type', 'memcached')
       ->get();
+
+    // $grafik =  DB::table('log_status')
+    //   ->orderBy('waktu', 'asc')
+    //   ->get();
+
+    // $persentase = DB::table('log_status')
+    //   ->select('persentase')
+    //   ->orderBy('persentase', 'asc');
+
+    // $waktu = DB::table('log_status')
+    //   ->select('waktu')
+    //   ->orderBy('waktu', 'asc');
+
+    $persentase = DB::table('log_status')->select('persentase as persentase')->orderBy('id_log', 'asc')->get();
+    $waktu = DB::table('log_status')->select('waktu as waktu')->orderBy('id_log', 'asc')->get();
+    // $logstatus = DB::table('log_status')->select('persentase', 'waktu')->get();
+
+
     return view('backend/system',  [
       'hosts' => $hosts,
       'cpu' => $cpus,
       'server' => $server,
+      'persentase' => $persentase,
+      'waktu' => $waktu,
     ]);
+  }
+
+  public function resetlog()
+  {
+    DB::table('log_status')->delete();
+    return redirect('system')->with(['success' => 'Log History Berhasil bersihkan']);
   }
 }

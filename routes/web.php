@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/cekstatus/cpu', 'CekstatusController@cpu');
   Route::get('/cekstatus/memory', 'CekstatusController@memory');
   Route::get('/system', 'SystemController@index');
+  Route::get('/system/resetlog', 'SystemController@resetlog');
   // Route::get('/processor', 'ProcessorController@index');
   Route::get('/statusserver', 'StatusServerController@index');
 
