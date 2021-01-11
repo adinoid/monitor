@@ -81,9 +81,9 @@ class ServerController extends Controller
         'updated_at' => Carbon::NOW(),
       ]);
 
-    shell_exec('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP
-    sudo iptables -I INPUT -p icmp --icmp-type any -j ACCEPT');
+    shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j DROP");
+    shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j ACCEPT");
     // Alert::success('Data Jobs', 'Berhasil Diubah');
-    return redirect('http://3.83.220.223/berkahbarang')->with(['success' => 'Server Berhasil diupdate']);
+    return redirect('http://3.83.220.223')->with(['success' => 'Server Berhasil diupdate']);
   }
 }

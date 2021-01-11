@@ -70,16 +70,16 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Aktifkan IP Table</h4>
+                    <h4 class="modal-title" id="myModalLabel">AUTO SCALING</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="fa fa-close"></span></span></button>
                   </div>
                   <form class="form-horizontal" action="{{ url('server/activate/'.$host->id) }}" method="get" enctype="multipart/form-data">
                     <div class="modal-body">
-                      <p>Apakah Anda Yakin Ingin Meng-Aktifkan IP Table ?</p>
+                      <p>Halaman akan dialihkan ?</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Batal</button>
-                      <button type="submit" class="btn btn-primary btn-flat" id="aktif">Aktifkan</button>
+                      <button type="submit" class="btn btn-primary btn-flat" id="aktif">Alihkan</button>
                     </div>
                   </form>
                 </div>
