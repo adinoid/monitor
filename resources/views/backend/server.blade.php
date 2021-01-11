@@ -64,7 +64,7 @@
 
             {{-- <button type="button" class="btn btn-info btn-block" disabled><a href="{{ url('server/disable/'.$host->id) }}"><b>Disable</b></a></button> --}}
             @else
-            <a href="" class="btn btn-success btn-block" data-toggle="modal" data-target="#ModalActivate"><b>Activate</b></a> 
+            <a href="" target="_blank" class="btn btn-success btn-block" data-toggle="modal" data-target="#ModalActivate"><b>Activate</b></a> 
 
             <div class="modal fade" id="ModalActivate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -78,10 +78,8 @@
                       <p>Halaman akan dialihkan ?</p>
                     </div>
                     <div class="modal-footer">
-                      <?php 
-                        shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j DROP"); ?>
                       <button type="button" class="btn btn-default btn-flat" data-dismiss="modal">Batal</button>
-                      <button type="submit" class="btn btn-primary btn-flat" id="aktif">Alihkan</button>
+                      <button type="submit" class="btn btn-primary btn-flat" id="aktif"> Alihkan</button>
                     </div>
                   </form>
                 </div>
