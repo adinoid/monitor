@@ -80,7 +80,10 @@ class ServerController extends Controller
         'custom_properties' => '1',
         'updated_at' => Carbon::NOW(),
       ]);
+
+    shell_exec('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP
+    sudo iptables -I INPUT -p icmp --icmp-type any -j ACCEPT');
     // Alert::success('Data Jobs', 'Berhasil Diubah');
-    return redirect('server')->with(['success' => 'Server Berhasil diupdate']);
+    return redirect('http://3.83.220.223/berkahbarang')->with(['success' => 'Server Berhasil diupdate']);
   }
 }
