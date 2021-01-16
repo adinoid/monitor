@@ -7,6 +7,7 @@ use App\Check;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Console\Command;
 
 class ServerController extends Controller
 {
@@ -81,10 +82,9 @@ class ServerController extends Controller
         'updated_at' => Carbon::NOW(),
       ]);
 
-    // $this->exec('ls -la');
-    $output = null;
-    $retval = null;
-    $this->exec('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP', $output);
+    // $process = new Process('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP');
+    // $process->run();
+    shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j DROP 2>&1");
     // shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j ACCEPT");
     // Alert::success('Data Jobs', 'Berhasil Diubah');
     // return redirect('http://3.83.220.223')->with(['success' => 'Server Berhasil diupdate']);
