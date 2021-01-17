@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Console\Command;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class ServerController extends Controller
 {
@@ -85,7 +87,14 @@ class ServerController extends Controller
     // $process = new Process('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP');
     // $process->run();
     // system("sudo iptables -I INPUT -p icmp --icmp-type any -j DROP");
-    passthru('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP');
+    // passthru('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP');
+
+    $process = new Process(['sudo iptables -I INPUT -p icmp --icmp-type any -j DROP']);
+    $process->run(); // executes after the command finishes 
+
+    // if (!$process->isSuccessful()) {
+    //   throw new ProcessFailedException($process);
+    // }
     // shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j ACCEPT");
     // Alert::success('Data Jobs', 'Berhasil Diubah');
     // return redirect('http://3.83.220.223')->with(['success' => 'Server Berhasil diupdate']);
