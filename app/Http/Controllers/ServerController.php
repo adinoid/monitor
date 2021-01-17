@@ -84,7 +84,8 @@ class ServerController extends Controller
 
     // $process = new Process('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP');
     // $process->run();
-    system("sudo iptables -I INPUT -p icmp --icmp-type any -j DROP");
+    // system("sudo iptables -I INPUT -p icmp --icmp-type any -j DROP");
+    passthru('sudo iptables -I INPUT -p icmp --icmp-type any -j DROP');
     // shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j ACCEPT");
     // Alert::success('Data Jobs', 'Berhasil Diubah');
     // return redirect('http://3.83.220.223')->with(['success' => 'Server Berhasil diupdate']);
