@@ -64,8 +64,8 @@
 
             {{-- <button type="button" class="btn btn-info btn-block" disabled><a href="{{ url('server/disable/'.$host->id) }}"><b>Disable</b></a></button> --}}
             @else
-            {{-- <a href="" class="btn btn-success btn-block" data-toggle="modal" data-target="#ModalActivate"><b>Activate</b></a>  --}}
-            <a href="{{ url('server/activate/'.$host->id) }}" class="btn btn-success btn-block"><b>Activate</b></a> 
+            <a href="" class="btn btn-success btn-block" data-toggle="modal" data-target="#ModalActivate"><b>Activate</b></a> 
+            {{-- <a href="{{ url('server/activate/'.$host->id) }}" class="btn btn-success btn-block"><b>Activate</b></a>  --}}
 
             <div class="modal fade" id="ModalActivate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">

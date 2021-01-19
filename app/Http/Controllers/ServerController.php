@@ -97,7 +97,7 @@ class ServerController extends Controller
     // }
     // shell_exec("sudo iptables -I INPUT -p icmp --icmp-type any -j ACCEPT");
     // Alert::success('Data Jobs', 'Berhasil Diubah');
-    // return redirect('http://3.83.220.223')->with(['success' => 'Server Berhasil diupdate']);
-    return redirect('server')->with(['success' => 'Server Berhasil diupdate']);
+    return redirect('http://3.83.220.223')->with(['success' => 'Server Berhasil diupdate']);
+    // return redirect('server')->with(['success' => 'Server Berhasil diupdate']);
   }
 }
